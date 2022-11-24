@@ -8,7 +8,7 @@
 
 const mergeSort = (nums) => {
   if (nums.length <= 1) {
-      return nums;
+    return nums;
   }
   
   let middleIndex = Math.ceil(nums.length / 2);
