@@ -17,10 +17,9 @@ function quickSort(nums) {
     return nums;
   }
 
-  let pivot = nums.pop();
-
-  let minusPivot = [];
-  let majorPivot = [];
+  const pivot = nums.pop();
+  const minusPivot = [];
+  const majorPivot = [];
 
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] < pivot) {
@@ -30,8 +29,9 @@ function quickSort(nums) {
     }
   }
 
-  let left = quickSort(minusPivot);
-  let right = quickSort(majorPivot);
+  const left = quickSort(minusPivot);
+  const right = quickSort(majorPivot);
+  
   return [].concat(left, pivot, right);
 }
 
