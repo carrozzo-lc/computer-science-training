@@ -4,16 +4,64 @@
 // it's up to you what to return if the object isn't found (we're not testing that)
 
 function linearSearch(id, array) {
-  // code goes here
+  let result;
+
+  for (let i = 0; i < array.length; i++) {
+    if (id === array[i].id) {
+      result = array[i];
+    }
+  }
+
+  return result;
 }
 
-function binarySearch(id, array) {
-  // code goes here
+function binarySearch(id, array) {  
+  // Wrong logic
+  // let middleIndex = Math.floor(array.length / 2);
+  // let arr = array;
+  // let left = arr.slice(0, middleIndex);  
+  // let right = arr.slice(middleIndex, arr.length); 
+
+  // while (id !== arr[middleIndex].id) {
+  //   if (id < arr[middleIndex].id) {
+  //     arr = left;
+  //     middleIndex = Math.floor(arr.length / 2);
+  //     left = arr.slice(0, middleIndex);
+  //     right = arr.slice(middleIndex, arr.length); 
+  //   } else {
+  //     arr = right;
+  //     middleIndex = Math.floor(arr.length / 2);
+  //     left = arr.slice(0, middleIndex);
+  //     right = arr.slice(middleIndex, arr.length); 
+  //   }
+  // }
+  
+  // return arr[middleIndex];
+
+  let min = 0;
+  let max = array.length - 1;
+  let index;
+  let element;
+
+  while (min <= max) {
+    index = Math.floor((min + max) / 2);
+    element = array[index];
+
+    if (element.id < id) {
+      min = index + 1;
+    } else if (element.id > id) {
+      max = index - 1;
+    } else {
+      return element;
+    }
+  }
+
+  return void 0;  
 }
 
 // unit tests
 // do not modify the below code
-test.skip("linear search", function () {
+test("linear search", function () {
   const lookingFor = { id: 5, name: "Brian" };
   expect(
     linearSearch(5, [
@@ -35,7 +83,7 @@ test.skip("linear search", function () {
   ).toBe(lookingFor);
 });
 
-test.skip("binary search", function () {
+test("binary search", function () {
   const lookingFor = { id: 23, name: "Brian" };
   expect(
     binarySearch(23, [
