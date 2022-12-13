@@ -29,6 +29,7 @@ class LinkedList {
     this.tail = null;
     this.length = 0;
   }
+
   push(value) {
     const node = new Node(value);
     this.length++;
@@ -39,23 +40,28 @@ class LinkedList {
     }
     this.tail = node;
   }
+
   pop() {
     return this.delete(this.length - 1);
   }
+
   _find(index) {
     if (index >= this.length) return null;
     let current = this.head;
-    for (let i = 0; i < index; i++) {
+    let i = 0;
+    while (i < index) {
       current = current.next;
+      i++
     }
-
     return current;
   }
+
   get(index) {
     const node = this._find(index);
-    if (!node) return void 0;
+    if (!node) return null;
     return node.value;
   }
+
   delete(index) {
     if (index === 0) {
       const head = this.head;
@@ -70,13 +76,14 @@ class LinkedList {
     }
 
     const node = this._find(index - 1);
-    const excise = node.next;
-    if (!excise) return null;
-    node.next = excise.next;
+    const current = node.next;
+    if (!current) return null;
+    node.next = current.next;
     if (!node.next) this.tail = node.next;
     this.length--;
-    return excise.value;
+    return current.value;
   }
+
 }
 
 class Node {
@@ -106,6 +113,7 @@ describe("LinkedList", function () {
   test("push", () => {
     abcRange(26).map((character) => list.push(character));
     expect(list.length).toEqual(26);
+    console.log(list)
   });
 
   test("pop", () => {
