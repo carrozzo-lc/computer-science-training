@@ -46,6 +46,32 @@ class Tree {
       }
     }
     return this;
+
+    //recursive version
+    // if (this.root === null) {
+    //   this.root = new Node(value);
+    // } else {
+    //   recursion(this.root, value);
+    // }  
+    // function recursion(node, value) {
+    //   if (node.value > value) {
+    //     if (node.left) {
+    //       recursion(node.left, value);
+    //     } else {
+    //       node.left = new Node(value);
+    //       return;
+    //     }
+    //   }
+    //   if (node.value < value) {
+    //     if (node.right) {
+    //       recursion(node.right, value);
+    //     } else {
+    //       node.right = new Node(value);
+    //       return;
+    //     }
+    //   }
+    // }    
+    // return this;
   }
 
   toObject() {
