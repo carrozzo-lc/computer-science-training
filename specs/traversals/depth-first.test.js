@@ -1,18 +1,36 @@
 const preorderTraverse = (node, array) => {
-  // code goes here
+  const recursion = (node) => {
+    array.push(node.value);
+    if (node.left) recursion(node.left);
+    if (node.right) recursion(node.right);
+  };
+  recursion(node);
+  return array;
 };
 
 const inorderTraverse = (node, array) => {
-  // code goes here
+  const recursion = (node) => {
+    if (node.left) recursion(node.left);
+    array.push(node.value);
+    if (node.right) recursion(node.right);
+  };
+  recursion(node);
+  return array;
 };
 
 const postorderTraverse = (node, array) => {
-  // code goes here
+  const recursion = (node) => {
+    if (node.left) recursion(node.left);
+    if (node.right) recursion(node.right);
+    array.push(node.value);
+  };
+  recursion(node);
+  return array;
 };
 
 // unit tests
 // do not modify the below code
-test.skip("depth-first traversals", function () {
+describe("depth-first traversals", function () {
   const tree = {
     value: 8,
     left: {
@@ -105,3 +123,4 @@ test.skip("depth-first traversals", function () {
     ]);
   });
 });
+
