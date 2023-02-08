@@ -16,7 +16,21 @@ I followed this course from Frontend Masters to practice, train and improve my C
 Feel free to clone the repo and check all exercises done, all stuff are in the "specs" folder.
 
 Arguments covered:
-- Bubble sort algorithm.
+- Bubble sort algorithm
+- Insertion Sort
+- Recursion
+- Merge Sort
+- Quick Sort
+- Radix Sort
+- Binary Search
+- ArrayList
+- LinkedList
+- Binary Search Tree
+- Self Balancing AVL Tree
+- Depth Fisrt Tree Traversals
+- Breadth First Tree Traversals
+- Heap Sort
+- Graphs
 
 
 [site]: https://btholt.github.io/complete-intro-to-computer-science
