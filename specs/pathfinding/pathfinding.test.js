@@ -125,7 +125,7 @@ function getNeighbors (visited, x, y) {
 
 // unit tests
 // do not modify the below code
-describe.skip("pathfinding – happy path", function () {
+describe("pathfinding – happy path", function () {
   const fourByFour = [
     [2, 0, 0, 0],
     [0, 0, 0, 0],
